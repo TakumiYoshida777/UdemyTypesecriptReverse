@@ -1,4 +1,8 @@
+import { showVariables } from './training/variables';
+
 const greeting: string = 'Hello, TypeScript!';
 
 console.log(greeting);
-console.log("test")
+console.log('test');
+
+showVariables();
