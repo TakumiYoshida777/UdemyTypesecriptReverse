@@ -1,0 +1,11 @@
+services:
+  app:
+    build: .
+    container_name: typescript-app
+    volumes:
+      - .:/app
+      - /app/node_modules
+    working_dir: /app
+    command: npm run dev
+    stdin_open: true
+    tty: true
