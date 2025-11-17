@@ -2,20 +2,19 @@
   "name": "typescript-to-reverse",
   "version": "1.0.0",
   "description": "TypeScript development environment",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
-    "dev": "nodemon --watch src --exec ts-node src/index.ts",
-    "dev:once": "ts-node src/index.ts",
-    "build": "tsc",
-    "start": "node dist/index.js",
+    "start": "nodemon",
     "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,json,css,md}\"",
-    "format:check": "prettier --check \"src/**/*.{ts,tsx,js,jsx,json,css,md}\""
+    "format:check": "prettier --check \"src/**/*.{ts,tsx,js,jsx,json,css,md}\"",
+    "test": "echo \"Error: no test scpecifide\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@types/express": "^5.0.5",
+    "@types/morgan": "^1.9.3",
     "@types/node": "^16.17.1",
     "nodemon": "^2.0.20",
     "prettier": "^3.6.2",
@@ -23,6 +22,8 @@
     "typescript": "4.8.3"
   },
   "dependencies": {
-    "express": "^4.18.1"
+    "express": "^4.18.1",
+    "express-async-errors": "^3.1.1",
+    "morgan": "^1.10.0"
   }
 }
