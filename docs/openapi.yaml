@@ -23,9 +23,6 @@ paths:
                         id:
                           type: integer
                           example: 1
-                        winnerDisc:
-                          type: integer
-                          example: 1
                         startedAt:
                           type: string
                           example: 2017-07-21T17:32:28Z
