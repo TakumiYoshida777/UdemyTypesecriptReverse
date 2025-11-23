@@ -41,6 +41,7 @@ async function showBoard() {
 }
 
 async function registerGame() {
+  console.log('call to games API');
   await fetch('/api/games', {
     method: 'POST',
   });
