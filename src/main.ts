@@ -99,20 +99,20 @@ app.get('/api/games/latest/turns/:turnCount', async (req, res) => {
 
     // 現在のターン情報を取得する
     const turnSelectResult = await conn.execute<mysql.RowDataPacket[]>(
-      'select id, game_id, turn_count, next_disc, end_at from turns where game_id= ? and turn_count = ?',
+      'select id, game_id, turn_count, next_disc, end_at from turns where game_id = ? and turn_count = ?',
       [game['id'], turnCount]
     );
     const turn = turnSelectResult[0][0];
 
     // 選択したマスの状態を取得
     const squaresSelectResult = await conn.execute<mysql.RowDataPacket[]>(
-      'select id turn_id, x, y, disc from squares where turn_id = ?',
+      `select id, turn_id, x, y, disc from squares where turn_id = ?`,
       [turn['id']]
     );
     const squares = squaresSelectResult[0];
 
     // ８*8の多重配列を作成（ボード）
-    const board = Array.from(Array(8).map(() => Array.from(Array(8))));
+    const board = Array.from(Array(8)).map(() => Array.from(Array(8)));
 
     // 盤面全体の状態を配列に格納
     squares.forEach((s) => {
@@ -127,7 +127,7 @@ app.get('/api/games/latest/turns/:turnCount', async (req, res) => {
       winnerDisc: null,
     };
 
-    res.json(responseBody);
+    res.status(200).json(responseBody);
   } finally {
     await conn.end();
   }
